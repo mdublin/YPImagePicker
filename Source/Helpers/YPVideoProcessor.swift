@@ -99,6 +99,7 @@ class YPVideoProcessor {
         exporter?.exportAsynchronously {
             if exporter?.status == .completed {
                 DispatchQueue.main.async(execute: {
+                    print("DispatchQueue exporter in YPVideoProcessor.cropToSquare() executed")
                     completion(outputPath)
                 })
                 return

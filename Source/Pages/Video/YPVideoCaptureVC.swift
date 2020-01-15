@@ -134,6 +134,7 @@ public class YPVideoCaptureVC: UIViewController, YPPermissionCheckable {
     }
     
     private func startRecording() {
+        print("YPVideoCaptureVC.startRecording() called.....")
         videoHelper.startRecording()
         updateState {
             $0.isRecording = true
