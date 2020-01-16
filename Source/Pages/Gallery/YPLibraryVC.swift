@@ -312,8 +312,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     
     func changeAsset(_ asset: PHAsset) {
         
-        print("ChangeAsset called!   [YPLibraryVC.swift]"")
-        print("this is the PHAsset: \(asset) [YPLibraryVC.swift]"")
+        print("ChangeAsset called!   [YPLibraryVC.swift]")
+        print("this is the PHAsset: \(asset) [YPLibraryVC.swift]")
 
 
         latestImageTapped = asset.localIdentifier
@@ -440,8 +440,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                         width: ts.width,
                                         height: ts.height)
 
-            print("About to call mediaManager.fetchVideoUrlAndCrop()...   [YPLibraryVC.swift]"")
-            print("with this asset: \(asset)    [YPLibraryVC.swift]"")
+            print("About to call mediaManager.fetchVideoUrlAndCrop()...   [YPLibraryVC.swift]")
+            print("with this asset: \(asset)    [YPLibraryVC.swift]")
 
             mediaManager.fetchVideoUrlAndCrop(for: asset, cropRect: resultCropRect, callback: callback)
         }
@@ -483,7 +483,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                         }
                         
                     case .video:
-                        print(".video case hit, about to call self.checkVideoLengthAndCrop() in YPLilbraryVC!    [YPLibraryVC.swift]"")
+                        print(".video case hit, about to call self.checkVideoLengthAndCrop() in YPLilbraryVC!    [YPLibraryVC.swift]")
 
                         self.checkVideoLengthAndCrop(for: asset.asset, withCropRect: asset.cropRect) { videoURL in
                             let videoItem = YPMediaVideo(thumbnail: thumbnailFromVideoPath(videoURL),
