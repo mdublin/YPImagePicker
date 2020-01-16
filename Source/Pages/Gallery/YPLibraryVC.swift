@@ -311,6 +311,11 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     }
     
     func changeAsset(_ asset: PHAsset) {
+        
+        print("ChangeAsset in YPLibraryVC called!")
+        print("this is the PHAsset: \(asset)")
+
+
         latestImageTapped = asset.localIdentifier
         delegate?.libraryViewStartedLoadingImage()
         
@@ -424,6 +429,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                          withCropRect: CGRect? = nil,
                                          callback: @escaping (_ videoURL: URL) -> Void) {
         if fitsVideoLengthLimits(asset: asset) == true {
+            print("checkVideoLengthAndCrop from YPLibraryVC!")
             delegate?.libraryViewDidTapNext()
             let normalizedCropRect = withCropRect ?? DispatchQueue.main.sync { v.currentCropRect() }
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
@@ -433,6 +439,10 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                         y: yCrop,
                                         width: ts.width,
                                         height: ts.height)
+
+            print("About to call mediaManager.fetchVideoUrlAndCrop()...")
+            print("with this asset: \(asset)")
+
             mediaManager.fetchVideoUrlAndCrop(for: asset, cropRect: resultCropRect, callback: callback)
         }
     }
@@ -473,6 +483,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                         }
                         
                     case .video:
+                        print(".video case hit, about to call self.checkVideoLengthAndCrop() in YPLilbraryVC!")
                         self.checkVideoLengthAndCrop(for: asset.asset, withCropRect: asset.cropRect) { videoURL in
                             let videoItem = YPMediaVideo(thumbnail: thumbnailFromVideoPath(videoURL),
                                                          videoURL: videoURL, asset: asset.asset)

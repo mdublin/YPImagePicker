@@ -66,6 +66,10 @@ class LibraryMediaManager {
     }
     
     func fetchVideoUrlAndCrop(for videoAsset: PHAsset, cropRect: CGRect, callback: @escaping (URL) -> Void) {
+
+        print("fetchVideoUrlAndCrop() from LibraryMediaManager!")
+        print("About to do all the AVMutableComposition stuff, dealing with video and audio...")
+
         let videosOptions = PHVideoRequestOptions()
         videosOptions.isNetworkAccessAllowed = true
         videosOptions.deliveryMode = .highQualityFormat
@@ -133,8 +137,12 @@ class LibraryMediaManager {
                 
                 self.currentExportSessions.append(exportSession!)
                 exportSession?.exportAsynchronously(completionHandler: {
+                    print("inside exportSession.exportAsync, before DispatchQueue...")
                     DispatchQueue.main.async {
                         if let url = exportSession?.outputURL, exportSession?.status == .completed {
+                            
+                            print("about to call the callabck(url)....with url: \(url)")
+
                             callback(url)
                             if let index = self.currentExportSessions.firstIndex(of:exportSession!) {
                                 self.currentExportSessions.remove(at: index)
