@@ -484,6 +484,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                         
                     case .video:
                         print(".video case hit, about to call self.checkVideoLengthAndCrop() in YPLilbraryVC!")
+
                         self.checkVideoLengthAndCrop(for: asset.asset, withCropRect: asset.cropRect) { videoURL in
                             let videoItem = YPMediaVideo(thumbnail: thumbnailFromVideoPath(videoURL),
                                                          videoURL: videoURL, asset: asset.asset)
@@ -505,11 +506,15 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                 case .audio, .unknown:
                     return
                 case .video:
+                    
+                    print("video case hit in else condition in YPLibraryVC!")
+
                     self.checkVideoLengthAndCrop(for: asset, callback: { videoURL in
                         DispatchQueue.main.async {
                             self.delegate?.libraryViewFinishedLoading()
                             let video = YPMediaVideo(thumbnail: thumbnailFromVideoPath(videoURL),
                                                      videoURL: videoURL, asset: asset)
+                            print("calling videoCallBack(video) in DispatchQueue in self.checkVideoLengthAndCrop() line #517")
                             videoCallback(video)
                         }
                     })
