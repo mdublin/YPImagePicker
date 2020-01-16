@@ -63,7 +63,7 @@ final class YPAssetZoomableView: UIScrollView {
                          completion: @escaping () -> Void,
                          updateCropInfo: @escaping () -> Void) {
         
-        print("setVideo() in YPAssetZoomableView called!")
+        print("setVideo() in YPAssetZoomableView called!  [YPAssetZoomableView.swift]")
 
         mediaManager.imageManager?.fetchPreviewFor(video: video) { [weak self] preview in
             guard let strongSelf = self else { return }
@@ -93,7 +93,7 @@ final class YPAssetZoomableView: UIScrollView {
             guard strongSelf.currentAsset != video else { completion() ; return }
             strongSelf.currentAsset = video
 
-            print("loading video & start playing, end of setVideo()")
+            print("loading video & start playing, end of setVideo()  [YPAssetZoomableView.swift]")
             strongSelf.videoView.loadVideo(playerItem)
             strongSelf.videoView.play()
         }

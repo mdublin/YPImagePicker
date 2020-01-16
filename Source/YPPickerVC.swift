@@ -330,6 +330,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
 extension YPPickerVC: YPLibraryViewDelegate {
     
     public func libraryViewDidTapNext() {
+        print("libraryViewDidTapNex() from YPPickerVC called!")
         libraryVC?.isProcessing = true
         DispatchQueue.main.async {
             self.v.scrollView.isScrollEnabled = false
