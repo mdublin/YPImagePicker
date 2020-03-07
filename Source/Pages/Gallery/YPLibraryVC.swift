@@ -430,13 +430,6 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                          callback: @escaping (_ videoURL: URL) -> Void) {
         if fitsVideoLengthLimits(asset: asset) == true {
             
-            
-            print("checkVideoLengthAndCrop from YPLibraryVC!")
-            print("asset info, pixelWidth, pixelHeight: ")
-            print(asset.pixelWidth)
-            print(asset.pixelHeight)
-            
-            
             delegate?.libraryViewDidTapNext()
             let normalizedCropRect = withCropRect ?? DispatchQueue.main.sync { v.currentCropRect() }
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
@@ -548,7 +541,9 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     // MARK: - TargetSize
     
     private func targetSize(for asset: PHAsset, cropRect: CGRect) -> CGSize {
-        
+        print("****************************************************************************************")
+        print("commenting out the weaking of the asset height and width in targetSize() in YPLibraryVC")
+        print("****************************************************************************************")
         /*
         var width = (CGFloat(asset.pixelWidth) * cropRect.width).rounded(.toNearestOrEven)
         var height = (CGFloat(asset.pixelHeight) * cropRect.height).rounded(.toNearestOrEven)
@@ -557,8 +552,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
         height = (height.truncatingRemainder(dividingBy: 2) == 0) ? height : height - 1
         */
         
-        var width = (CGFloat(asset.pixelWidth))
-        var height = (CGFloat(asset.pixelHeight))
+        let width = (CGFloat(asset.pixelWidth))
+        let height = (CGFloat(asset.pixelHeight))
         
         return CGSize(width: width, height: height)
     }
