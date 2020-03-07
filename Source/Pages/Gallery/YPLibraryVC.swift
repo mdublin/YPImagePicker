@@ -432,15 +432,31 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
             
             delegate?.libraryViewDidTapNext()
             let normalizedCropRect = withCropRect ?? DispatchQueue.main.sync { v.currentCropRect() }
+            
+            print("passing to targetSize: ")
+            print("asset.pixelHeight: ")
+            print(asset.pixelHeight)
+            print("asset.pixelWidth: ")
+            print(asset.pixelWidth)
+            
+            
+            
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
             let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
             let yCrop: CGFloat = normalizedCropRect.origin.y * CGFloat(asset.pixelHeight)
+            
+            
             
             let resultCropRect = CGRect(x: xCrop,
                                         y: yCrop,
                                         width: ts.width,
                                         height: ts.height)
 
+            print("resultsCropRect: ")
+            print(resultsCropRect)
+            
+            
+            
             print("About to call mediaManager.fetchVideoUrlAndCrop()...   [YPLibraryVC.swift]")
             print("with this asset: \(asset)    [YPLibraryVC.swift]")
 
