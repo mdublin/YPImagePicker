@@ -114,7 +114,8 @@ class LibraryMediaManager {
                 // Video Composition
                 let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
                 videoComposition.instructions = [mainInstructions]
-                videoComposition.renderSize = cropRect.size // needed? 
+                print("COMMENTED OUT videoComposition.renderSize prop assigment!!!!!!!!!! 117 in LibraryMediaManager.siwft")
+                //videoComposition.renderSize = cropRect.size // needed?
                 
                 // 5. Configuring export session
                 
@@ -137,7 +138,7 @@ class LibraryMediaManager {
                 
                 self.currentExportSessions.append(exportSession!)
                 exportSession?.exportAsynchronously(completionHandler: {
-                    print("inside exportSession.exportAsync, before DispatchQueue...")
+                    print("inside exportSession.exportAsync, before DispatchQueue... [LibraryMediaManager.swift]")
                     DispatchQueue.main.async {
                         if let url = exportSession?.outputURL, exportSession?.status == .completed {
                             
