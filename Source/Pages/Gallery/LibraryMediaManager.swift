@@ -100,6 +100,7 @@ class LibraryMediaManager {
                 try videoCompositionTrack.insertTimeRange(trackTimeRange, of: videoTrack, at: CMTime.zero)
                 
                 // Layer Instructions
+                /*
                 let layerInstructions = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
                 var transform = videoTrack.preferredTransform
                 transform.tx -= cropRect.minX
@@ -115,8 +116,14 @@ class LibraryMediaManager {
                 let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
                 videoComposition.instructions = [mainInstructions]
                 print("COMMENTED OUT videoComposition.renderSize prop assigment!!!!!!!!!! 117 in LibraryMediaManager.siwft")
-                //videoComposition.renderSize = cropRect.size // needed?
+                videoComposition.renderSize = cropRect.size // needed?
+                */
+
                 
+                
+                let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
+
+ 
                 // 5. Configuring export session
                 
                 let exportSession = AVAssetExportSession(asset: assetComposition,
