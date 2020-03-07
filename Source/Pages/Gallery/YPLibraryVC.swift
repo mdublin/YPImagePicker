@@ -433,8 +433,12 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
             delegate?.libraryViewDidTapNext()
             let normalizedCropRect = withCropRect ?? DispatchQueue.main.sync { v.currentCropRect() }
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
-            let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
-            let yCrop: CGFloat = normalizedCropRect.origin.y * CGFloat(asset.pixelHeight)
+            //let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
+            //let yCrop: CGFloat = normalizedCropRect.origin.y * CGFloat(asset.pixelHeight)
+            
+            let xCrop: CGFloat = CGFloat(asset.pixelWidth)
+            let yCrop: CGFloat = CGFloat(asset.pixelHeight)
+            
             let resultCropRect = CGRect(x: xCrop,
                                         y: yCrop,
                                         width: ts.width,
