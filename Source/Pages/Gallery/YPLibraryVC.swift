@@ -442,8 +442,13 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
             
             
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
-            let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
-            let yCrop: CGFloat = normalizedCropRect.origin.y * CGFloat(asset.pixelHeight)
+            //let xCrop: CGFloat = normalizedCropRect.origin.x * CGFloat(asset.pixelWidth)
+            //let yCrop: CGFloat = normalizedCropRect.origin.y * CGFloat(asset.pixelHeight)
+            
+            
+            print("hardcoding the xCrop and yCrop values ---> ")
+            let xCrop = CGFloat(0.0)
+            let yCrop = CGFloat(0.0)
             
             
             
