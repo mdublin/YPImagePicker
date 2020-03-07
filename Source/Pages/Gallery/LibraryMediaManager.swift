@@ -123,10 +123,6 @@ class LibraryMediaManager {
                 videoComposition.renderSize = cropRect.size // needed?
                 
 
-                
-                
-                let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
-
  
                 // 5. Configuring export session
                 
