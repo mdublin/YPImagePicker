@@ -452,8 +452,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                         width: ts.width,
                                         height: ts.height)
 
-            print("resultsCropRect: ")
-            print(resultsCropRect)
+            print("resultCropRect: ")
+            print(resultCropRect)
             
             
             
