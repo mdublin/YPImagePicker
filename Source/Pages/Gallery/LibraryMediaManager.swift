@@ -99,8 +99,13 @@ class LibraryMediaManager {
                 
                 try videoCompositionTrack.insertTimeRange(trackTimeRange, of: videoTrack, at: CMTime.zero)
                 
+                
+                //print("commenting out  Layer Instructions")
                 // Layer Instructions
-                /*
+                
+                print("THIS IS cropRect: ")
+                print(cropRect)
+                
                 let layerInstructions = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
                 var transform = videoTrack.preferredTransform
                 transform.tx -= cropRect.minX
@@ -115,9 +120,8 @@ class LibraryMediaManager {
                 // Video Composition
                 let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
                 videoComposition.instructions = [mainInstructions]
-                print("COMMENTED OUT videoComposition.renderSize prop assigment!!!!!!!!!! 117 in LibraryMediaManager.siwft")
                 videoComposition.renderSize = cropRect.size // needed?
-                */
+                
 
                 
                 
