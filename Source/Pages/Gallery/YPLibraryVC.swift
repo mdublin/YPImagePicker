@@ -429,7 +429,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                                          withCropRect: CGRect? = nil,
                                          callback: @escaping (_ videoURL: URL) -> Void) {
         if fitsVideoLengthLimits(asset: asset) == true {
-            print("checkVideoLengthAndCrop from YPLibraryVC!")i
+            print("checkVideoLengthAndCrop from YPLibraryVC!")
             delegate?.libraryViewDidTapNext()
             let normalizedCropRect = withCropRect ?? DispatchQueue.main.sync { v.currentCropRect() }
             let ts = targetSize(for: asset, cropRect: normalizedCropRect)
